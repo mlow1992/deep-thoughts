@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactionList from '../components/ReactionList';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_THOUGHT } from '../utils/queries';
@@ -29,6 +30,8 @@ const SingleThought = props => {
           <p>{thought.thoughtText}</p>
         </div>
       </div>
+
+      {thought.reactionCount > 0 && <ReactionList reactions={thought.reactions} />}
     </div>
   );
 };
